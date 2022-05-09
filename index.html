@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>Pokedex</title>
+  </head>
+  <body>
+    <main class="pokedex is-open" tabindex="0">
+      <section
+        class="pokedex-main"
+        aria-label="General information about pokemon"
+      >
+        <div class="header-shadow">
+          <div class="header">
+            <span class="light is-big is-sky"></span>
+            <span class="light is-red"></span>
+            <span class="light is-yellow"></span>
+            <span class="light is-green"></span>
+          </div>
+        </div>
+        <div class="screen">
+          <div class="screen-border">
+            <div class="screen-buttonsWithScreen">
+              <div class="screen-safeArea"></div>
+              <div class="buttons">
+                <div class="button-circles">
+                  <span class="circle circleLeft" aria-hidden="true"></span>
+                  <span class="circle circleRight" aria-hidden="true"></span>
+                </div>
+                <img
+                  src="https://xavimontero.github.io/pokedex/icons/button.png"
+                  alt="icon"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="variants">
+            <button class="variants-principal"></button>
+            <button class="variants-secondary"></button>
+            <button class="variants-third"></button>
+          </div>
+          <form role="search" id="form" class="search">
+            <input
+              type="text"
+              name="id"
+              placeholder="Who is that pokemon?"
+              autocomplete="off"
+            />
+          </form>
+          <div class="description">
+            <p>Search any pokemon to get all its chacteristics</p>
+          </div>
+          <div class="navigation">
+            <button
+              id="prev-pokemon"
+              class="navigation-left"
+              aria-label="Previous pokemon"
+            ></button>
+            <button
+              id="next-image"
+              class="navigation-up"
+              aria-label="Next current pokemon image"
+            ></button>
+            <button
+              id="next-pokemon"
+              class="navigation-right"
+              aria-label="Next pokemon"
+            ></button>
+            <button
+              id="prev-image"
+              class="navigation-down"
+              aria-label="Previous current pokemon image"
+            ></button>
+          </div>
+        </div>
+      </section>
+      <div class="cover-front">cover front</div>
+      <section class="cover-back" aria-label="Pokemon Statistics">
+        <div class="stats">stats</div>
+      </section>
+    </main>
+  </body>
+</html>
