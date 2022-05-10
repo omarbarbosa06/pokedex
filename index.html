@@ -14,7 +14,7 @@
     <title>Pokedex</title>
   </head>
   <body>
-    <main class="pokedex is-open" tabindex="0">
+    <main class="pokedex is-open" id="pokedex" tabindex="0">
       <section
         class="pokedex-main"
         aria-label="General information about pokemon"
@@ -30,7 +30,9 @@
         <div class="screen">
           <div class="screen-border">
             <div class="screen-buttonsWithScreen">
-              <div class="screen-safeArea"></div>
+              <div class="screen-safeArea" id="screen">
+                <img src="" alt="" id="image" />
+              </div>
               <div class="buttons">
                 <div class="button-circles">
                   <span class="circle circleLeft" aria-hidden="true"></span>
@@ -47,7 +49,7 @@
         </div>
         <div class="actions">
           <div class="variants">
-            <button class="variants-principal"></button>
+            <button id="principal" class="variants-principal"></button>
             <button class="variants-secondary"></button>
             <button class="variants-third"></button>
           </div>
@@ -57,10 +59,13 @@
               name="id"
               placeholder="Who is that pokemon?"
               autocomplete="off"
+              id="input"
             />
           </form>
           <div class="description">
-            <p>Search any pokemon to get all its chacteristics</p>
+            <p id="description">
+              Search any pokemon to get all its chacteristics
+            </p>
           </div>
           <div class="navigation">
             <button
