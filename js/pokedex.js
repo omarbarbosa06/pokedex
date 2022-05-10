@@ -1,5 +1,5 @@
 import { getPokemon, getSpecies } from './api.js'
-
+import { createChart } from './charts.js'
 const $image = document.querySelector('#image')
 export function setImage(image) {
   $image.src = image
@@ -19,7 +19,6 @@ const $search = document.querySelector('#input')
 
 const $light = document.querySelector('#light')
 function speech(text) {
-  console.log('here')
   let utterance = new SpeechSynthesisUtterance(text)
   utterance.lang = 'en'
   speechSynthesis.speak(utterance)
@@ -44,6 +43,9 @@ export async function findPokemon(id) {
     return flavor.language.name === 'en'
   })
   const sprites = [pokemon.sprites.front_default]
+  const stats = pokemon.stats.map((item) => {
+    return item.base_stat
+  })
   for (const item in pokemon.sprites) {
     if (
       item !== 'front-default' &&
@@ -54,15 +56,15 @@ export async function findPokemon(id) {
       sprites.push(pokemon.sprites[item])
     }
   }
-  console.log(sprites)
   return {
     description: description.flavor_text,
     sprites,
     id: pokemon.id,
     name: pokemon.name,
+    stats,
   }
 }
-
+let activeChart = null
 export async function setPokemon(id) {
   //loader
   loader(true)
@@ -73,5 +75,9 @@ export async function setPokemon(id) {
   setDescription(pokemon.description)
   speechSynthesis.cancel()
   speech(`${pokemon.name}. ${pokemon.description}`)
+  if (activeChart instanceof Chart) {
+    activeChart.destroy()
+  }
+  activeChart = createChart(pokemon.stats)
   return pokemon
 }

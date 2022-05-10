@@ -1,4 +1,5 @@
 import { setPokemon, setImage } from './pokedex.js'
+import './charts.js'
 const $form = document.querySelector('#form')
 const $next = document.querySelector('#next-pokemon')
 const $prev = document.querySelector('#prev-pokemon')

@@ -14,7 +14,7 @@
     <title>Pokedex</title>
   </head>
   <body>
-    <main class="pokedex is-open" id="pokedex" tabindex="0">
+    <main class="pokedex" id="pokedex" tabindex="0">
       <section
         class="pokedex-main"
         aria-label="General information about pokemon"
@@ -93,9 +93,12 @@
       </section>
       <div class="cover-front">cover front</div>
       <section class="cover-back" aria-label="Pokemon Statistics">
-        <div class="stats">stats</div>
+        <div class="stats">
+          <canvas id="stats" width="200" height="400"></canvas>
+        </div>
       </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
     <script src="./js/index.js" type="module"></script>
   </body>
 </html>
