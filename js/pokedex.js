@@ -1,7 +1,7 @@
 import { getPokemon, getSpecies } from './api.js'
 
 const $image = document.querySelector('#image')
-function setImage(image) {
+export function setImage(image) {
   $image.src = image
 }
 
@@ -15,8 +15,20 @@ function loader(isLoading = false) {
   const img = isLoading ? 'url(./images/loader.gif)' : ''
   $screen.style.backgroundImage = img
 }
-
 const $search = document.querySelector('#input')
+
+const $light = document.querySelector('#light')
+function speech(text) {
+  console.log('here')
+  let utterance = new SpeechSynthesisUtterance(text)
+  utterance.lang = 'en'
+  speechSynthesis.speak(utterance)
+  $light.classList.add('is-animated')
+
+  utterance.addEventListener('end', () => {
+    $light.classList.remove('is-animated')
+  })
+}
 
 export async function findPokemon(id) {
   const { data: pokemon, isError } = await getPokemon(id)
@@ -47,6 +59,7 @@ export async function findPokemon(id) {
     description: description.flavor_text,
     sprites,
     id: pokemon.id,
+    name: pokemon.name,
   }
 }
 
@@ -58,5 +71,7 @@ export async function setPokemon(id) {
   loader(false)
   setImage(pokemon.sprites[0])
   setDescription(pokemon.description)
+  speechSynthesis.cancel()
+  speech(`${pokemon.name}. ${pokemon.description}`)
   return pokemon
 }
